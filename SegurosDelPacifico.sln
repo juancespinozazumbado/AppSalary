@@ -7,10 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{486CEA58-855
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SegurosDelPacific.web", "src\SegurosDelPacific.web\SegurosDelPacific.web.csproj", "{A5EC76B2-AE66-4337-B818-6926CFECFFDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SegurosDelPacifico.Core", "src\SegurosDelPacifico.Core\SegurosDelPacifico.Core.csproj", "{DE2EFA96-835B-441C-9ED7-76FE17295D08}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SegurosDelPacifico.Infraestructure", "src\SegurosDelPacifico.Infraestructure\SegurosDelPacifico.Infraestructure.csproj", "{A5681C12-4EA7-47E5-ABC2-3CB5B2005AD7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,21 +17,11 @@ Global
 		{A5EC76B2-AE66-4337-B818-6926CFECFFDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5EC76B2-AE66-4337-B818-6926CFECFFDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5EC76B2-AE66-4337-B818-6926CFECFFDD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DE2EFA96-835B-441C-9ED7-76FE17295D08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DE2EFA96-835B-441C-9ED7-76FE17295D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DE2EFA96-835B-441C-9ED7-76FE17295D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DE2EFA96-835B-441C-9ED7-76FE17295D08}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A5681C12-4EA7-47E5-ABC2-3CB5B2005AD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A5681C12-4EA7-47E5-ABC2-3CB5B2005AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A5681C12-4EA7-47E5-ABC2-3CB5B2005AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A5681C12-4EA7-47E5-ABC2-3CB5B2005AD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A5EC76B2-AE66-4337-B818-6926CFECFFDD} = {486CEA58-8556-42B6-9CA0-8ED1D1C2D71B}
-		{DE2EFA96-835B-441C-9ED7-76FE17295D08} = {486CEA58-8556-42B6-9CA0-8ED1D1C2D71B}
-		{A5681C12-4EA7-47E5-ABC2-3CB5B2005AD7} = {486CEA58-8556-42B6-9CA0-8ED1D1C2D71B}
 	EndGlobalSection
 EndGlobal
