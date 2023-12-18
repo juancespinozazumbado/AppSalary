@@ -1,11 +1,20 @@
+using Config;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
-using Model.Auth;
-using MyApplication.Data;
+using Models.Auth;
+
+
+
+//configure the application.
+
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection");builder.Services.AddDbContext<AuthContext>(options =>
-    options.UseSqlServer(connectionString));builder.Services.AddDefaultIdentity<Usuario>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<AuthContext>();
+
+
+ConfigDependencias.ConfigureDatabases(builder.Services, builder.Configuration );  
+
+  builder.Services.AddIdentity<Usuario, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddEntityFrameworkStores<AuthContext>().AddDefaultTokenProviders().AddDefaultUI();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -25,6 +34,14 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapControllerRoute(
+            name: "areas",
+            pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+          );
+
+app.MapRazorPages();
+
 
 app.MapControllerRoute(
     name: "default",

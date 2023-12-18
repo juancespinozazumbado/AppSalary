@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace Model.Auth;
+namespace Models.Auth;
 
 public class Usuario : IdentityUser
 {
+    public string? ProfileImageUrl {get; set;}
 
-    
 }
