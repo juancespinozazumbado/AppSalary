@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{486CEA58-8556-42B6-9CA0-8ED1D1C2D71B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SegurosDelPacific.web", "src\SegurosDelPacific.web\SegurosDelPacific.web.csproj", "{A5EC76B2-AE66-4337-B818-6926CFECFFDD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SegurosDelPacifico.web", "src\SegurosDelPacifico.web\SegurosDelPacifico.web.csproj", "{A5EC76B2-AE66-4337-B818-6926CFECFFDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
