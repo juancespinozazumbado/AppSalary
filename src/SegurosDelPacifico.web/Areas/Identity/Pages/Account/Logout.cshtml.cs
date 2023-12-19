@@ -28,6 +28,7 @@ namespace SegurosDelPacifico.web.Areas.Identity.Pages.Account
         {
             await _signInManager.SignOutAsync();
             _logger.LogInformation("User logged out.");
+             await Task.Delay(2000);
             if (returnUrl != null)
             {
                 return LocalRedirect(returnUrl);

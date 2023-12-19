@@ -11,7 +11,7 @@ using Models.Auth;
 namespace SegurosDelPacifico.web.Migrations
 {
     [DbContext(typeof(AuthContext))]
-    [Migration("20231218230227_initial")]
+    [Migration("20231219035030_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -94,11 +94,9 @@ namespace SegurosDelPacifico.web.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ProviderDisplayName")
@@ -136,11 +134,9 @@ namespace SegurosDelPacifico.web.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Value")
@@ -216,6 +212,22 @@ namespace SegurosDelPacifico.web.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "56fe28a9-664b-411f-b903-ddfbf99501c0",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "76dac5e5-7435-410e-bf96-acc0a20470d3",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFkkBBC/gYmjJnPtcZI+gRiUCh+jPT9EXxKZ6GtjkLf2UjA8r0qLWYsU9nKmjOFCrg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "83da79ab-000c-4224-a0a2-1c25c3a127da",
+                            TwoFactorEnabled = false,
+                            UserName = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

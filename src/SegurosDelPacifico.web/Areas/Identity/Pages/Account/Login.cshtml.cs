@@ -21,12 +21,15 @@ namespace SegurosDelPacifico.web.Areas.Identity.Pages.Account
     public class LoginModel : PageModel
     {
         private readonly SignInManager<Usuario> _signInManager;
+        private readonly UserManager<Usuario> _userManager;
         private readonly ILogger<LoginModel> _logger;
 
-        public LoginModel(SignInManager<Usuario> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<Usuario> signInManager, ILogger<LoginModel> logger,
+            UserManager<Usuario> usermanager)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _userManager = usermanager;
         }
 
         /// <summary>
@@ -66,7 +69,7 @@ namespace SegurosDelPacifico.web.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            [EmailAddress]
+            
             public string Email { get; set; }
 
             /// <summary>
@@ -112,9 +115,14 @@ namespace SegurosDelPacifico.web.Areas.Identity.Pages.Account
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+
+                var user = await _userManager.FindByNameAsync(Input.Email);
+               
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                      await _signInManager.SignInAsync(user, true);
+                    await Task.Delay(2000);
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }

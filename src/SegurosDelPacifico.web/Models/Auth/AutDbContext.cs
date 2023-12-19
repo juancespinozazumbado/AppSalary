@@ -13,7 +13,26 @@ public class AuthContext : IdentityDbContext<Usuario>
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+
+
+        builder.Entity<Usuario>().HasData( CreateAdminUser());
+
         base.OnModelCreating(builder);
        
+       
+    }
+
+    private Usuario CreateAdminUser(){
+
+        var admin = new Usuario(){
+            UserName = "Admin",
+            NormalizedUserName = "ADMIN"
+        };
+
+        var hassher = new PasswordHasher<Usuario>();
+        admin.PasswordHash = hassher.HashPassword(admin, "seguros2023");
+
+        return admin;
+
     }
 }
