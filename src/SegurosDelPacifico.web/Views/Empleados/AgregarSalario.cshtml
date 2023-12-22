@@ -1,0 +1,48 @@
+@using Models.Dtos;
+@model AgregarSalario;
+
+
+@{
+    ViewData["Title"] = $"Empleado/{@ViewBag.Empleado.Id }/Salario/Add";
+    Model.FechaSalario = DateTime.Now;
+
+
+}
+
+
+<form asp-area ="" asp-controller="Empleados" asp-action="AgregarSalario" method="post">
+
+ <div class="mb-3">
+
+    <input type="hidden" class="form-control" asp-for="EmpleadoId" value ="@ViewBag.Empleado.Id">
+    <span asp-validation-for="FechaSalario" class="text-danger"></span>
+    
+    <input type="date" readonly="readonly" class="form-control" asp-for="FechaSalario" >
+    <span asp-validation-for="FechaSalario" class="text-danger"></span>
+    
+  </div>
+
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Horas</label>
+    <input type="money" class="form-control" asp-for="Horas">
+    <span asp-validation-for="Horas" class="text-danger"></span>
+  </div>
+
+    <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Horas extra</label>
+    <input type="money" class="form-control" asp-for="HorasExtra">
+    <span asp-validation-for="HorasExtra" class="text-danger"></span>
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

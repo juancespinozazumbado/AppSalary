@@ -1,0 +1,94 @@
+@using Models.Domain;
+@model List<Empleado>;
+
+
+@{
+    ViewData["Title"] = "Empleados";
+}
+
+@* <h2>Empleados</h2> *@
+
+@if (Model.Count != 0)
+{
+
+    <a type="button" class="btn btn-outline-primary" asp-action="Crear"><i class="bi bi-plus-square"></i> Crear</a>
+    <br />
+  
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                     
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Salario Base</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var empleado in Model)
+                {
+                    
+                    <tr>
+                        
+
+                        <td>@Html.DisplayFor(modelItem => @empleado.Nombre)</td>
+                        <td>@Html.DisplayFor(modelItem => @empleado.SalarioBase)</td>
+                        <td>
+
+                            <div style="display:flex; flex-direction: row; ">
+                               <i class="bi bi-pencil-square"></i>  @Html.ActionLink("", "Editar", new { id = empleado.Id }, new { @class = "btn-secundary" }) |
+                               <i class="bi bi-layout-text-window-reverse"></i> @Html.ActionLink("Detalles", "Detalles", new { id = empleado.Id }, new { @class = "link-warning" }) |
+                              
+                            <button type="button" class="btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <i class="bi bi-trash3-fill"></i> 
+                            </button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="eliminar"  class="btn btn-danger">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+                            </div>
+
+
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+
+    <div class="container ">
+        <a type="button" class="btn btn-outline-primary" asp-action="Crear"><i class="bi bi-plus-square"></i> Crear</a>
+        <br />
+        <br />
+        <div class="row">
+            <figure class="figure">
+                <img src="~/assets/img/empty-contet.png" class="figure-img img-fluid rounded" alt="...">
+                <figcaption class="figure-caption"></figcaption>
+
+            </figure>
+        </div>
+
+
+
+    </div>
+
+
+}

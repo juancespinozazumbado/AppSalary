@@ -1,0 +1,34 @@
+@using Models.Dtos;
+@model CrearEmpleado;
+
+
+@{
+    ViewData["Title"] = "Empleado/crear";
+}
+
+
+
+<form asp-area ="" asp-controller="Empleados" asp-action="Guardar" method="post">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Nombre</label>
+    <input type="text" class="form-control" asp-for="Nombre" >
+    <span asp-validation-for="Nombre" class="text-danger"></span>
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Salario Base</label>
+    <input type="money" class="form-control" asp-for="Salario">
+    <span asp-validation-for="Salario" class="text-danger"></span>
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
