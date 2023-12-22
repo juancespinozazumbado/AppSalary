@@ -87,12 +87,11 @@ public class EmpleadosController : Controller
         }
     }
 
-    public async Task<IActionResult> Editar(string idEmpleado)
+    public async Task<IActionResult> Editar(Guid id)
     {
 
         try{
-
-            var empleado = await  _context.Empleados.FindAsync(idEmpleado);
+            var empleado = await  _context.Empleados.FindAsync(id);
             ViewBag.Empleado = empleado;
             return View(empleado);
             
@@ -104,14 +103,14 @@ public class EmpleadosController : Controller
 
 
     [HttpPost]
-    public async Task<IActionResult> Editar(string idEmpleado, Empleado datos)
+    public async Task<IActionResult> Editar(Guid id, Empleado datos)
     {
         
         try{
              
              if(ModelState.IsValid){
 
-               var empleado = await _context.Empleados.FindAsync(idEmpleado);
+               var empleado = await _context.Empleados.FindAsync(id);
                if(empleado != null){
                empleado.Nombre = datos.Nombre;
                empleado.SalarioBase = datos.SalarioBase;
@@ -197,15 +196,16 @@ public class EmpleadosController : Controller
 
     }
 
-   [HttpDelete]
-    public async Task<IActionResult> Eliminar(Guid IdEmpleado){
+   [HttpPost]
+    public async Task<IActionResult> Eliminar (Guid? Id){
 
-       var empleado = await _context.Empleados.FindAsync(IdEmpleado);
+       var empleado = await _context.Empleados.FindAsync(Id);
 
         _context.Empleados.Remove(empleado);
+        var empleados = await _context.Empleados.ToListAsync();
         await _context.SaveChangesAsync();
-
-        return View(nameof(Index));        
+        
+        return View(nameof(Index), empleados);        
 
     }
 

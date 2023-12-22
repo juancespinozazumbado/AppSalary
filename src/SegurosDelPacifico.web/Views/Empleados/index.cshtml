@@ -1,5 +1,5 @@
 @using Models.Domain;
-@model List<Empleado>;
+@model List<Empleado>?;
 
 
 @{
@@ -36,10 +36,12 @@
                         <td>
 
                             <div style="display:flex; flex-direction: row; ">
-                               <i class="bi bi-pencil-square"></i>  @Html.ActionLink("", "Editar", new { id = empleado.Id }, new { @class = "btn-secundary" }) |
-                               <i class="bi bi-layout-text-window-reverse"></i> @Html.ActionLink("Detalles", "Detalles", new { id = empleado.Id }, new { @class = "link-warning" }) |
-                              
-                            <button type="button" class="btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                               @* <i class="bi bi-pencil-square"></i>  @Html.ActionLink("", "Editar", new { id = empleado.Id }, new { @class = "btn-secundary" }) | *@
+                               <a  asp-controller="Empleados" asp-action="Editar" asp-route-id="@empleado.Id" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-square"></i></a> |
+
+                               @* <i class="bi bi-eye-fill"></i> @Html.ActionLink("", "Detalles", new { id = empleado.Id }, new { @class = "btn btn-secondary btn-sm" }) | *@
+                              <a  asp-controller="Empleados" asp-action="Detalles" asp-route-id="@empleado.Id" class="btn btn-secondary btn-sm"><i class="bi bi-eye-fill"></i></a> |
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
   <i class="bi bi-trash3-fill"></i> 
                             </button>
 
@@ -48,15 +50,18 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar Empleado</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        ¿Esta seguros que desea eliminar el registro? 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" id="eliminar"  class="btn btn-danger">Save changes</button>
+        <form asp-area ="" asp-controller="Empleados"asp-action="Eliminar" method="post">
+        <input type="hidden" asp-for="@empleado.Id" />
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button asp-action ="Eliminar" asp-route-id ="@empleado.Id" type="submit" id="eliminar"  class="btn btn-danger">Eliminar</button>
+       </form>
       </div>
     </div>
   </div>
@@ -66,7 +71,7 @@
 
 
                     </tr>
-                }
+              }
             </tbody>
         </table>
     </div>
