@@ -202,11 +202,12 @@ public class EmpleadosController : Controller
        var empleado = await _context.Empleados.FindAsync(Id);
 
         _context.Empleados.Remove(empleado);
-        var empleados = await _context.Empleados.ToListAsync();
-        await _context.SaveChangesAsync();
+         await _context.SaveChangesAsync();
         
-        return View(nameof(Index), empleados);        
-
+        var empleados = await _context.Empleados.ToListAsync();
+       
+        // return View(nameof(Index), empleados);       
+        return RedirectToAction(nameof(Index), empleados); 
     }
 
 }
