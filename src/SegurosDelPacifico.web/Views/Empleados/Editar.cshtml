@@ -3,7 +3,7 @@
 
 
 @{
-    ViewData["Title"] = $"Empleado/{@Model.Id}/Editar";
+    ViewData["Title"] = $"Empleado/{@Model.Nombre}/Editar";
 }
 
 
@@ -13,24 +13,24 @@
     
     <input type="hidden" class="form-control" asp-for="Id" >
     <span asp-validation-for="Nombre" class="text-danger"></span>
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    <div id="emailHelp" class="form-text">Infrese los nuevos valores en el formulario</div>
   </div>
 
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Nombre</label>
     <input type="text" class="form-control" asp-for="Nombre" >
     <span asp-validation-for="Nombre" class="text-danger"></span>
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+ 
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Salario Base</label>
     <input type="money" class="form-control" asp-for="SalarioBase">
     <span asp-validation-for="SalarioBase" class="text-danger"></span>
   </div>
-  <div class="mb-3 form-check">
+  @* <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
+  </div> *@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 

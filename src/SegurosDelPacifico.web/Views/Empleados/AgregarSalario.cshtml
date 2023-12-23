@@ -3,7 +3,7 @@
 
 
 @{
-    ViewData["Title"] = $"Empleado/{@ViewBag.Empleado.Id }/Salario/Add";
+    ViewData["Title"] = $"Empleado/{@ViewBag.Empleado.Nombre }/Salario/Add";
     Model.FechaSalario = DateTime.Now;
 
 
@@ -16,8 +16,8 @@
 
     <input type="hidden" class="form-control" asp-for="EmpleadoId" value ="@ViewBag.Empleado.Id">
     <span asp-validation-for="FechaSalario" class="text-danger"></span>
-    
-    <input type="date" readonly="readonly" class="form-control" asp-for="FechaSalario" >
+    <label for="Date" class="form-label">Fecha</label>
+    <input type="date"  class="form-control" asp-for="FechaSalario" >
     <span asp-validation-for="FechaSalario" class="text-danger"></span>
     
   </div>
@@ -38,7 +38,7 @@
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
 
 @section Scripts {

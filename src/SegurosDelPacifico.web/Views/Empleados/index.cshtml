@@ -32,7 +32,7 @@
                         
 
                         <td>@Html.DisplayFor(modelItem => @empleado.Nombre)</td>
-                        <td>@Html.DisplayFor(modelItem => @empleado.SalarioBase)</td>
+                        <td> @Html.DisplayFor(modelItem => @empleado.SalarioBase, "{0:C}")</td>
                         <td>
 
                             <div style="display:flex; flex-direction: row; ">

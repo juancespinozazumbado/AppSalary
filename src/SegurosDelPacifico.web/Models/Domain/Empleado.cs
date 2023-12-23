@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Models.Domain;
 
 
@@ -5,6 +7,7 @@ public class Empleado
 {
   public Guid Id {get; set;}
   public string Nombre {get; set;}
+  [DisplayFormat(DataFormatString = "{0:C}")]
   public double SalarioBase {get; set;}
   public List<Salario>? Salarios {get; set;}
  
@@ -19,8 +22,12 @@ public class Salario
   public Empleado Empleado;
   public double Horas {get; set;}
   public double HorasExtra {get; set;}
+
+  [DisplayFormat(DataFormatString = "{0:C}")]
   public double SalarioBruto {get; private set;}
+  [DisplayFormat(DataFormatString = "{0:C}")]
   public double SalarioNeto {get; private set;}
+  [DisplayFormat(DataFormatString = "{0:C}")]
   public double MontoDeduciones {get; private set;}
   public int PorcentajeDeduciones {get; private set;}
 
