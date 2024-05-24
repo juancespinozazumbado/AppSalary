@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 
-     $('#login-submit').click( function(){
+     $('#action-submit').click( function(){
 
         
         $('#spinner').removeClass('d-none');

@@ -59,12 +59,18 @@
       <div class="modal-footer">
         <form asp-area ="" asp-controller="Empleados"asp-action="Eliminar" method="post">
         <input type="hidden" asp-for="@empleado.Id" />
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button asp-action ="Eliminar" asp-route-id ="@empleado.Id" type="submit" id="eliminar"  class="btn btn-danger">Eliminar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancelar</button>
+        <button asp-action="Eliminar" asp-route-id="@empleado.Id" type="submit" id="action-submit" class="btn btn-danger">Eliminar</button>
        </form>
       </div>
     </div>
+                                      
+
   </div>
+
+
+                               
+
 </div>
                             </div>
 
@@ -74,6 +80,13 @@
               }
             </tbody>
         </table>
+
+        <div class="d-flex justify-content-center d-none " id="spinner">
+            <div class="spinner-border" role="status">
+                <span class="sr-only "></span>
+            </div>
+        </div>
+
     </div>
 }
 else
@@ -97,3 +110,7 @@ else
 
 
 }
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/Login/loginLoader.js"></script>
